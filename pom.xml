@@ -305,25 +305,35 @@
             <id>www.amido.com</id>
             <url>file:////${project.basedir}/reports/</url>
         </site>
-        <!-- jFrog repo -->
+
+        <!-- Publishing to jFrog artifactory -->
         <repository>
             <id>stacks.releases</id>
             <url>https://amidostacks.jfrog.io/artifactory/default-maven-local</url>
         </repository>
         <snapshotRepository>
             <id>stacks.snapshots</id>
+            <!-- TODO: separate to a snapshot repository -->
             <url>https://amidostacks.jfrog.io/artifactory/default-maven-local</url>
         </snapshotRepository>
 
-        <!-- Local repos -->
-<!--        <repository>-->
-<!--            <id>stacks.releases</id>-->
-<!--            <url>http://localhost:8081/artifactory/stacksrelease</url>-->
-<!--        </repository>-->
-<!--        <snapshotRepository>-->
-<!--            <id>stacks.snapshots</id>-->
-<!--            <url>http://localhost:8081/artifactory/stacks-snapshots</url>-->
-<!--        </snapshotRepository>-->
+        <!-- Publishing to local jFrog repositories, to start an instance:
+            docker run --name artifactory \
+              -v ~/development/artifactory/var/:/var/opt/jfrog/artifactory -d \
+              -p 8081:8081 \
+              -p 8082:8082 \
+              releases-docker.jfrog.io/jfrog/artifactory-oss:latest
+         -->
+        <!--
+        <repository>
+            <id>stacks.releases</id>
+            <url>http://localhost:8081/artifactory/stacksrelease</url>
+        </repository>
+        <snapshotRepository>
+            <id>stacks.snapshots</id>
+            <url>http://localhost:8081/artifactory/stacks-snapshots</url>
+        </snapshotRepository>
+        -->
     </distributionManagement>
 
     <profiles>
