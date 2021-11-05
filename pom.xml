@@ -300,6 +300,32 @@
         </dependencies>
     </dependencyManagement>
 
+    <distributionManagement>
+        <site>
+            <id>www.amido.com</id>
+            <url>file:////${project.basedir}/reports/</url>
+        </site>
+        <!-- jFrog repo -->
+        <repository>
+            <id>stacks.releases</id>
+            <url>https://amidostacks.jfrog.io/artifactory/default-maven-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>stacks.snapshots</id>
+            <url>https://amidostacks.jfrog.io/artifactory/default-maven-local</url>
+        </snapshotRepository>
+
+        <!-- Local repos -->
+<!--        <repository>-->
+<!--            <id>stacks.releases</id>-->
+<!--            <url>http://localhost:8081/artifactory/stacksrelease</url>-->
+<!--        </repository>-->
+<!--        <snapshotRepository>-->
+<!--            <id>stacks.snapshots</id>-->
+<!--            <url>http://localhost:8081/artifactory/stacks-snapshots</url>-->
+<!--        </snapshotRepository>-->
+    </distributionManagement>
+
     <profiles>
         <profile>
             <id>owasp-dependency-check</id>
