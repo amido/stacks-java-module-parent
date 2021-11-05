@@ -62,13 +62,13 @@
             <version>2.0.0-alpha5</version>
         </dependency>
 
-<!--        &lt;!&ndash; this should be shared only as long as stacks supports only azure &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>com.microsoft.azure</groupId>-->
-<!--            <artifactId>applicationinsights-logging-logback</artifactId>-->
-<!--            <version>${applicationinsights.version}</version>-->
-<!--            <scope>runtime</scope>-->
-<!--        </dependency>-->
+        <!--        &lt;!&ndash; this should be shared only as long as stacks supports only azure &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.microsoft.azure</groupId>-->
+        <!--            <artifactId>applicationinsights-logging-logback</artifactId>-->
+        <!--            <version>${applicationinsights.version}</version>-->
+        <!--            <scope>runtime</scope>-->
+        <!--        </dependency>-->
 
         <!--  Test dependencies-->
         <dependency>
@@ -340,47 +340,8 @@
 
     <build>
         <pluginManagement>
+            <!-- default plugin configuration goes here -->
             <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>3.7.1</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>3.0.0-M5</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${maven-compiler-plugin.version}</version>
-                    <configuration>
-                        <source>${maven.compiler.source}</source>
-                        <target>${maven.compiler.target}</target>
-                        <annotationProcessorPaths>
-                            <path>
-                                <groupId>org.projectlombok</groupId>
-                                <artifactId>lombok</artifactId>
-                                <version>${lombok.version}</version>
-                            </path>
-                        </annotationProcessorPaths>
-                        <forceJavacCompilerUse>true</forceJavacCompilerUse>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${maven-surefire-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <id>default-test</id>
-                            <!-- Only run tests in the `test` phase, avoid running
-                            in the `package` phase. -->
-                            <phase>${maven-surefire-phase}</phase>
-                        </execution>
-                    </executions>
-                </plugin>
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
@@ -431,6 +392,7 @@
                         </execution>
                     </executions>
                 </plugin>
+
                 <plugin>
                     <groupId>com.coveo</groupId>
                     <artifactId>fmt-maven-plugin</artifactId>
@@ -445,82 +407,136 @@
                         <style>google</style>
                     </configuration>
                 </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>${maven-checkstyle-plugin.version}</version>
-                    <dependencies>
-                        <!--Specify Dependent checkstyle Edition-->
-                        <dependency>
-                            <groupId>com.puppycrawl.tools</groupId>
-                            <artifactId>checkstyle</artifactId>
-                            <version>${puppycrawl-tools-checkstyle.version}</version>
-                        </dependency>
-                    </dependencies>
-                    <configuration>
-                        <configLocation>google_checks.xml</configLocation>
-                        <encoding>UTF-8</encoding>
-                        <consoleOutput>true</consoleOutput>
-                        <failsOnError>true</failsOnError>
-                        <linkXRef>false</linkXRef>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>validate</id>
-                            <phase>validate</phase>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>com.github.spotbugs</groupId>
-                    <artifactId>spotbugs-maven-plugin</artifactId>
-                    <version>${spotbugs-maven-plugin.version}</version>
-                    <dependencies>
-                        <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
-                        <dependency>
-                            <groupId>com.github.spotbugs</groupId>
-                            <artifactId>spotbugs</artifactId>
-                            <version>${spotbugs.version}</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
-                <!--              FIXME:  mutation testing disabled for simplicity for now -->
-                <!--            <plugin>-->
-                <!--                <groupId>org.pitest</groupId>-->
-                <!--                <artifactId>pitest-maven</artifactId>-->
-                <!--                <version>${pitest.version}</version>-->
-                <!--                <dependencies>-->
-                <!--                    <dependency>-->
-                <!--                        <groupId>org.pitest</groupId>-->
-                <!--                        <artifactId>pitest-junit5-plugin</artifactId>-->
-                <!--                        <version>0.14</version>-->
-                <!--                    </dependency>-->
-                <!--                </dependencies>-->
-                <!--                <executions>-->
-                <!--                    <execution>-->
-                <!--                        <id>pitest</id>-->
-                <!--                        <phase>verify</phase>-->
-                <!--                        <goals>-->
-                <!--                            <goal>mutationCoverage</goal>-->
-                <!--                        </goals>-->
-                <!--                    </execution>-->
-                <!--                </executions>-->
-                <!--                <configuration>-->
-                <!--                    <threads>15</threads>-->
-                <!--                    <historyInputFile>target/pitHistory.txt</historyInputFile>-->
-                <!--                    <historyOutputFile>target/pitHistory.txt</historyOutputFile>-->
-                <!--                    <timestampedReports>false</timestampedReports>-->
-                <!--                    <mutators>-->
-                <!--                        <value>STRONGER</value>-->
-                <!--                    </mutators>-->
-                <!--                    <outputFormats>-->
-                <!--                        <outputFormat>XML</outputFormat>-->
-                <!--                        <outputFormat>HTML</outputFormat>-->
-                <!--                    </outputFormats>-->
-                <!--                </configuration>-->
-                <!--            </plugin>-->
             </plugins>
         </pluginManagement>
+
+        <!-- plugins inherited by ALL modules -->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.7.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.0.0-M5</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    <forceJavacCompilerUse>true</forceJavacCompilerUse>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>default-test</id>
+                        <!-- Only run tests in the `test` phase, avoid running
+                        in the `package` phase. -->
+                        <phase>${maven-surefire-phase}</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>com.coveo</groupId>
+                <artifactId>fmt-maven-plugin</artifactId>
+                <version>${fmt-maven-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${maven-checkstyle-plugin.version}</version>
+                <dependencies>
+                    <!--Specify Dependent checkstyle Edition-->
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>${puppycrawl-tools-checkstyle.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <configLocation>google_checks.xml</configLocation>
+                    <encoding>UTF-8</encoding>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
+                    <linkXRef>false</linkXRef>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>${spotbugs-maven-plugin.version}</version>
+                <dependencies>
+                    <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
+                    <dependency>
+                        <groupId>com.github.spotbugs</groupId>
+                        <artifactId>spotbugs</artifactId>
+                        <version>${spotbugs.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <!--              FIXME:  mutation testing disabled for simplicity for now -->
+            <!--            <plugin>-->
+            <!--                <groupId>org.pitest</groupId>-->
+            <!--                <artifactId>pitest-maven</artifactId>-->
+            <!--                <version>${pitest.version}</version>-->
+            <!--                <dependencies>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.pitest</groupId>-->
+            <!--                        <artifactId>pitest-junit5-plugin</artifactId>-->
+            <!--                        <version>0.14</version>-->
+            <!--                    </dependency>-->
+            <!--                </dependencies>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <id>pitest</id>-->
+            <!--                        <phase>verify</phase>-->
+            <!--                        <goals>-->
+            <!--                            <goal>mutationCoverage</goal>-->
+            <!--                        </goals>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--                <configuration>-->
+            <!--                    <threads>15</threads>-->
+            <!--                    <historyInputFile>target/pitHistory.txt</historyInputFile>-->
+            <!--                    <historyOutputFile>target/pitHistory.txt</historyOutputFile>-->
+            <!--                    <timestampedReports>false</timestampedReports>-->
+            <!--                    <mutators>-->
+            <!--                        <value>STRONGER</value>-->
+            <!--                    </mutators>-->
+            <!--                    <outputFormats>-->
+            <!--                        <outputFormat>XML</outputFormat>-->
+            <!--                        <outputFormat>HTML</outputFormat>-->
+            <!--                    </outputFormats>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+        </plugins>
     </build>
 
     <reporting>
