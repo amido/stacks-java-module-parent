@@ -60,14 +60,15 @@ variables:
 
   - name: self_remote_repo
     value: "amido/$(self_repo)"
-  - name: self_repo_src
-    value: java
+  # - name: self_repo_src
+  #   value: java
   - name: self_post_deploy_test_src
     value: "api-tests"
   - name: self_repo_dir
     value: "$(Agent.BuildDirectory)/s/$(self_repo)"
   - name: self_project_dir
-    value: "$(self_repo_dir)/$(self_repo_src)"
+    # value: "$(self_repo_dir)/$(self_repo_src)"
+    value: "$(self_repo_dir)"
   - name: self_functional_testproject_dir
     value: "$(self_repo_dir)/$(self_post_deploy_test_src)"
   - name: self_repo_tf_src
