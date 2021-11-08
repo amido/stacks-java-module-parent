@@ -234,28 +234,28 @@ stages:
               project_type: "${{ variables.java_project_type }}"
 
           # Performs static code analysis, such as Sonar Cloud
-          - template: templates/steps/build/test-static-code-analysis.yml
-            parameters:
-              project_root_dir: "${{ variables.self_project_dir }}"
-              pipeline_scripts_directory: "${{ variables.self_pipeline_scripts_dir}}"
-              # PR / Branch vars
-              source_branch_ref: "$(source_branch_ref)"
-              target_branch_ref: "$(target_branch_ref)"
-              pullrequest_number: "$(pullrequest_number)"
-              # Sonar
-              sonar_enable: true
-              sonar_container: "sonar_scanner"
-              sonar_host_url: "https://sonarcloud.io"
-              sonar_project_name: "$(SONAR_PROJECT_NAME)"
-              sonar_project_key: "$(SONAR_PROJECT_KEY)"
-              sonar_token: "$(SONAR_TOKEN)"
-              sonar_organisation: "$(SONAR_ORGANIZATION)"
-              # Probably `GitHub` or `vsts`
-              sonar_pullrequest_provider: "GitHub"
-              sonar_remote_repo: "${{ variables.self_remote_repo }}"
-              sonar_command: "sonar-scanner"
-              # Docker
-              docker_image_tag: "${{ variables.docker_image_tag }}"
+          # - template: templates/steps/build/test-static-code-analysis.yml
+          # parameters:
+          # project_root_dir: "${{ variables.self_project_dir }}"
+          # pipeline_scripts_directory: "${{ variables.self_pipeline_scripts_dir}}"
+          # PR / Branch vars
+          # source_branch_ref: "$(source_branch_ref)"
+          # target_branch_ref: "$(target_branch_ref)"
+          # pullrequest_number: "$(pullrequest_number)"
+          # Sonar
+          # sonar_enable: true
+          # sonar_container: "sonar_scanner"
+          # sonar_host_url: "https://sonarcloud.io"
+          # sonar_project_name: "$(SONAR_PROJECT_NAME)"
+          # sonar_project_key: "$(SONAR_PROJECT_KEY)"
+          # sonar_token: "$(SONAR_TOKEN)"
+          # sonar_organisation: "$(SONAR_ORGANIZATION)"
+          # Probably `GitHub` or `vsts`
+          # sonar_pullrequest_provider: "GitHub"
+          # sonar_remote_repo: "${{ variables.self_remote_repo }}"
+          # sonar_command: "sonar-scanner"
+          # Docker
+          # docker_image_tag: "${{ variables.docker_image_tag }}"
 
           # Post build tasks, such as Test and Coverage upload, and publishing artefacts
           - template: templates/steps/build/post-build-tasks.yml
