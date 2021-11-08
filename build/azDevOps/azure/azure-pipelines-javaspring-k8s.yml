@@ -131,7 +131,7 @@ variables:
   - name: maven_archetype_properties_file
     value: "archetype.properties"
   - name: maven_settings_file
-    value: "./settings.xml"
+    value: "./.mvn/settings.xml"
   - name: maven_repository_server
     value: stacks.releases::https://amidostacks.jfrog.io/artifactory/default-maven-local
 
