@@ -1,7 +1,7 @@
 parameters:
   project_root_dir: ""
   functional_test_project_root_dir: ""
-  functional_test: true
+  functional_test: false
   functional_test_artefact_path: ""
   functional_test_artefact_name: ""
   build_file: ""
@@ -13,17 +13,17 @@ parameters:
   functional_test_project_type: ""
 
 steps:
-  - task: PublishTestResults@2
-    condition: always()
-    displayName: "Publish Test Results"
-
-  - task: PublishCodeCoverageResults@1
-    condition: always()
-    inputs:
-      codeCoverageTool: "JaCoCo"
-      summaryFileLocation: "${{ parameters.project_root_dir }}/target/site/jacoco/jacoco.xml"
-      reportDirectory: "${{ parameters.project_root_dir }}/target/site/jacoco-inline"
-    displayName: "Publish JaCoCo Coverage Results"
+  #  - task: PublishTestResults@2
+  #    condition: always()
+  #    displayName: "Publish Test Results"
+  #
+  #  - task: PublishCodeCoverageResults@1
+  #    condition: always()
+  #    inputs:
+  #      codeCoverageTool: "JaCoCo"
+  #      summaryFileLocation: "${{ parameters.project_root_dir }}/target/site/jacoco/jacoco.xml"
+  #      reportDirectory: "${{ parameters.project_root_dir }}/target/site/jacoco-inline"
+  #    displayName: "Publish JaCoCo Coverage Results"
 
   # Publish Vulnerability Artefacts if required
   - ${{ if eq(parameters.vulnerability_scan, true) }}:
