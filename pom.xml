@@ -14,6 +14,7 @@
     <properties>
         <!-- Dependency versions definitions-->
         <spring-boot.version>2.5.2</spring-boot.version>
+        <spring.version>5.3.8</spring.version>
         <applicationinsights.version>2.6.3</applicationinsights.version>
         <auth0-spring-security-api.version>1.4.1</auth0-spring-security-api.version>
         <azure.springboot.version>3.6.0</azure.springboot.version>
@@ -121,6 +122,11 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
