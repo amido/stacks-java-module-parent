@@ -69,7 +69,7 @@ stages:
             displayName: 'Update: Build Number'
 
           # Validates all YAML files in the repo to check they adhere to standards
-          - template: templates/steps/build/test-validate-yaml.yml
+          - template: templates/java-modules/test-validate-yaml.yml@templates
             parameters:
               pipeline_scripts_directory: "${{ variables.self_pipeline_scripts_dir }}"
               container: "k8s_deploy"
@@ -77,7 +77,7 @@ stages:
               yamllint_scan_directory: "${{ variables.yamllint_scan_directory }}"
 
           # Builds the Java app, runs tests and deploy to the artifact repository
-          - template: templates/steps/build/build-java.yml
+          - template: templates/java-modules/build-java.yml@templates
             parameters:
               repo_root_dir: "${{ variables.self_repo_dir }}"
               project_root_dir: "${{ variables.self_project_dir }}"
@@ -99,7 +99,7 @@ stages:
               project_type: "${{ variables.java_project_type }}"
 
           # Performs static code analysis, such as Sonar Cloud
-          - template: templates/steps/build/test-static-code-analysis.yml
+          - template: templates/java-modules/test-static-code-analysis.yml@templates
             parameters:
               project_root_dir: "${{ variables.self_project_dir }}"
               pipeline_scripts_directory: "${{ variables.self_pipeline_scripts_dir}}"
@@ -123,7 +123,7 @@ stages:
               docker_image_tag: "${{ variables.docker_image_tag }}"
 
           # Post build tasks, such as Test and Coverage upload, and publishing artefacts
-          - template: templates/steps/build/post-build-tasks.yml
+          - template: templates/java-modules/post-build-tasks.yml@templates
             parameters:
               project_root_dir: "${{ variables.self_project_dir }}"
               functional_test_project_root_dir: "${{ variables.self_functional_testproject_dir }}"
@@ -156,7 +156,7 @@ stages:
             displayName: 'Update: Build Number'
 
           # Validates all YAML files in the repo to check they adhere to standards
-          - template: templates/steps/build/test-validate-yaml.yml
+          - template: templates/java-modules/test-validate-yaml.yml@templates
             parameters:
               pipeline_scripts_directory: "${{ variables.self_pipeline_scripts_dir }}"
               container: "k8s_deploy"
@@ -164,7 +164,7 @@ stages:
               yamllint_scan_directory: "${{ variables.yamllint_scan_directory }}"
 
           # Builds the Java archetype and deploy to the artifact repository
-          - template: templates/steps/build/build-java-archetype.yml
+          - template: templates/java-modules/build-java-archetype.yml@templates
             parameters:
               repo_root_dir: "${{ variables.self_repo_dir }}"
               project_root_dir: "${{ variables.self_project_dir }}"
