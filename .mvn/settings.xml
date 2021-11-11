@@ -82,6 +82,16 @@
       <username>${artifactory.username}</username>
       <password>${artifactory.password}</password>
     </server>
+    <server>
+      <id>central</id>
+      <username>${artifactory.username}</username>
+      <password>${artifactory.password}</password>
+    </server>
+    <server>
+      <id>snapshots</id>
+      <username>${artifactory.username}</username>
+      <password>${artifactory.password}</password>
+    </server>
   </servers>
 
   <!-- mirrors
@@ -211,14 +221,26 @@
       </properties>
     </profile>
     -->
+
+    <profile>
+      <repositories>
+        <repository>
+          <snapshots/>
+          <id>snapshots</id>
+          <name>default-maven-virtual</name>
+          <url>https://amidostacks.jfrog.io/artifactory/default-maven-virtual</url>
+        </repository>
+      </repositories>
+      <id>artifactory</id>
+    </profile>
   </profiles>
 
   <!-- activeProfiles
    | List of profiles that are active for all builds.
    |
-  <activeProfiles>
-    <activeProfile>alwaysActiveProfile</activeProfile>
-    <activeProfile>anotherAlwaysActiveProfile</activeProfile>
-  </activeProfiles>
   -->
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+  </activeProfiles>
+
 </settings>
