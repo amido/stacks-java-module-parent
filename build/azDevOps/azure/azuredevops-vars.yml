@@ -24,8 +24,6 @@ variables:
 
   - name: self_remote_repo
     value: "amido/$(self_repo)"
-  # - name: self_repo_src
-  #   value: java
   - name: self_post_deploy_test_src
     value: "api-tests"
   - name: self_repo_dir
