@@ -63,14 +63,6 @@
             <version>2.0.0-alpha5</version>
         </dependency>
 
-        <!--        &lt;!&ndash; this should be shared only as long as stacks supports only azure &ndash;&gt;-->
-        <!--        <dependency>-->
-        <!--            <groupId>com.microsoft.azure</groupId>-->
-        <!--            <artifactId>applicationinsights-logging-logback</artifactId>-->
-        <!--            <version>${applicationinsights.version}</version>-->
-        <!--            <scope>runtime</scope>-->
-        <!--        </dependency>-->
-
         <!--  Test dependencies-->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -334,24 +326,6 @@
             <!-- TODO: separate to a snapshot repository -->
             <url>https://amidostacks.jfrog.io/artifactory/default-maven-local</url>
         </snapshotRepository>
-
-        <!-- Publishing to local jFrog repositories, to start an instance:
-            docker run - -name artifactory \
-              -v ~/development/artifactory/var/:/var/opt/jfrog/artifactory -d \
-              -p 8081:8081 \
-              -p 8082:8082 \
-              releases-docker.jfrog.io/jfrog/artifactory-oss:latest
-         -->
-        <!--
-        <repository>
-            <id>stacks.releases</id>
-            <url>http://localhost:8081/artifactory/stacksrelease</url>
-        </repository>
-        <snapshotRepository>
-            <id>stacks.snapshots</id>
-            <url>http://localhost:8081/artifactory/stacks-snapshots</url>
-        </snapshotRepository>
-        -->
     </distributionManagement>
 
     <profiles>
@@ -371,7 +345,6 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <!--                            <outputDirectory>${project.basedir}/reports/owasp</outputDirectory>-->
                         </configuration>
                     </plugin>
                 </plugins>
@@ -406,7 +379,6 @@
                             <exclude>**/AuthControllerImpl*</exclude>
                             <exclude>**/ApplicationConfig*</exclude>
                         </excludes>
-                        <!--                    <outputDirectory>${project.basedir}/reports/jacoco</outputDirectory>-->
                         <!--                    TO DO Review the configuration-->
                         <destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
                         <dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
@@ -599,43 +571,19 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
                 <configuration>
-                    <!--                    <outputDirectory>${project.basedir}/reports/newsite</outputDirectory>-->
                 </configuration>
-                <!--                <reportSets>-->
-                <!--                    <reportSet>-->
-                <!--                        <reports>-->
-                <!--                            <report>aggregate</report>-->
-                <!--                        </reports>-->
-                <!--                    </reportSet>-->
-                <!--                </reportSets>-->
             </plugin>
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
                 <version>${owasp-dependency-check-plugin.version}</version>
-                <!--                <reportSets>-->
-                <!--                    <reportSet>-->
-                <!--                        <reports>-->
-                <!--                            <report>aggregate</report>-->
-                <!--                        </reports>-->
-                <!--                    </reportSet>-->
-                <!--                </reportSets>-->
             </plugin>
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
                 <configuration>
                     <xmlOutput>true</xmlOutput>
-                    <!-- Optional directory to put spotbugs xdoc xml report -->
-                    <!--                    <xmlOutputDirectory>${project.basedir}/reports/spotbugs</xmlOutputDirectory>-->
                 </configuration>
-                <!--                <reportSets>-->
-                <!--                    <reportSet>-->
-                <!--                        <reports>-->
-                <!--                            <report>aggregate</report>-->
-                <!--                        </reports>-->
-                <!--                    </reportSet>-->
-                <!--                </reportSets>-->
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
