@@ -83,7 +83,7 @@ variables:
 
   # Maven
   - name: maven_package_version
-    value: "${{ variables.version_major }}.${{ variables.version_minor }}.$(version_revision)-SNAPSHOT"
+    value: "${{ variables.version_major }}.${{ variables.version_minor }}.$(version_revision)-$(Build.SourceBranchName)-SNAPSHOT"
   - name: maven_cache_directory
     value: "./.m2"
   - name: maven_surefire_reports_dir
