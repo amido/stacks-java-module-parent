@@ -100,7 +100,7 @@ variables:
   - name: maven_settings_file
     value: "./.mvn/settings.xml"
   - name: maven_repository_server
-    value: stacks.releases::https://amidostacks.jfrog.io/artifactory/default-maven-local
+    value: stacks.releases::https://amidostacks.jfrog.io/artifactory/default-maven-virtual
 
   # Vulnerability Scan
   - name: vulnerability_scan
