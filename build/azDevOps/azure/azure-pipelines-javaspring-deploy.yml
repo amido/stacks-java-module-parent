@@ -26,7 +26,7 @@ resources:
       type: github
       name: amido/stacks-pipeline-templates
       # TODO: Templates branch needs to be published
-      ref: feature/java-modules-templates
+      ref: feature/cycle4
       # EXCHANGE THIS FOR YOUR OWN ENDPOINT CONNECTION TO GITHUB
       # REPOSITORY IS PUBLIC
       endpoint: amidostacks
