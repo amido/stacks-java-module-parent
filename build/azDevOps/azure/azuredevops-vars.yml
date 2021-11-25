@@ -50,7 +50,7 @@ variables:
   - name: version_revision
     value: "$[counter(join(variables['version_major'], join('-', variables['version_minor'])), 0)]"
   - name: test
-    value: "$[join(variables['version_major'], join('-', variables['version_minor'])]"
+    value: "$[join(variables['version_major'], join('-', variables['version_minor']))]"
 
   # PR / Branch vars
   - name: source_branch_ref
