@@ -67,6 +67,7 @@ stages:
           - bash: |
               echo '##vso[Build.UpdateBuildNumber]${{ variables.docker_image_tag }}'
               echo '${{ variables.test }}'
+              echo '${{ join(variables['version_major'], join('-', variables['version_minor'])) }}'
             displayName: 'Update: Build Number'
 
           # Validates all YAML files in the repo to check they adhere to standards
