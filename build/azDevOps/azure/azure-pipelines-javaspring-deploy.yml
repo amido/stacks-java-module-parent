@@ -74,6 +74,8 @@ stages:
               echo 'Join 1b ${{ join('-', variables.version_minor) }}'
               echo 'Join 2  ${{ join(variables['version_major'], variables['version_minor']) }}'
               echo 'Join 3  ${{ join(variables.version_major, join('-', variables.version_minor)) }}'
+              echo 'Join 4  ${{ join('variables.version_major', join('-', 'variables.version_minor')) }}'
+              echo 'Join 5  ${{ join('-', 'variables.version_minor') }}'
             displayName: 'Update: Build Number'
 
           # Validates all YAML files in the repo to check they adhere to standards
