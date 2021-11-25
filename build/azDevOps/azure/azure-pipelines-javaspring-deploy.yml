@@ -47,7 +47,7 @@ resources:
 
 variables:
   - template: azuredevops-vars.yml
-    git
+  
   # Versioning
   - name: version_major
     value: 1
