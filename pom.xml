@@ -316,20 +316,14 @@
     </dependencyManagement>
 
     <distributionManagement>
-        <site>
-            <id>www.amido.com</id>
-            <url>file:////${project.basedir}/reports/</url>
-        </site>
-
         <!-- Publishing to jFrog artifactory -->
         <repository>
             <id>stacks.releases</id>
-            <url>https://amidostacks.jfrog.io/artifactory/default-maven-local</url>
+            <url>https://amidostacks.jfrog.io/artifactory/stacks-maven-releases-local</url>
         </repository>
         <snapshotRepository>
             <id>stacks.snapshots</id>
-            <!-- TODO: separate to a snapshot repository -->
-            <url>https://amidostacks.jfrog.io/artifactory/default-maven-local</url>
+            <url>https://amidostacks.jfrog.io/artifactory/stacks-maven-snapshots-local</url>
         </snapshotRepository>
     </distributionManagement>
 
