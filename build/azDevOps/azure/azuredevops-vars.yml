@@ -42,6 +42,16 @@ variables:
   - name: self_pipeline_scripts_dir
     value: "$(self_pipeline_repo)/scripts"
 
+  # Versioning
+  - name: version_major
+    value: 1
+  - name: version_minor
+    value: 0
+  - name: counter_index
+    value: "${{variables.version_major}}-${{variables.version_minor}}"
+  - name: version_revision
+    value: "$[counter(variables['counter_index'], 0)]"
+
   # PR / Branch vars
   - name: source_branch_ref
     value: "$[coalesce(variables['System.PullRequest.SourceBranch'], variables['Build.SourceBranch'])]"
