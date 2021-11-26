@@ -44,11 +44,13 @@ variables:
 
   # Versioning
   - name: version_major
-    value: 0
+    value: 1
   - name: version_minor
     value: 0
+  - name: counter_index
+    value: "${{variables.version_major}}-${{variables.version_minor}}"
   - name: version_revision
-    value: "$[counter(join(variables['version_major'], join('-', variables['version_minor'])), 0)]"
+    value: "$[counter(variables['counter_index'], 0)]"
 
   # PR / Branch vars
   - name: source_branch_ref
@@ -82,6 +84,11 @@ variables:
     value: ubuntu-20.04
 
   # Maven
+  - name: maven_package_version
+    ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
+      value: "${{ variables.version_major }}.${{ variables.version_minor }}.$(version_revision)"
+    ${{ if ne( variables['Build.SourceBranchName'], 'main' ) }}:
+      value: "${{ variables.version_major }}.${{ variables.version_minor }}.$(version_revision)-SNAPSHOT"
   - name: maven_cache_directory
     value: "./.m2"
   - name: maven_surefire_reports_dir
@@ -95,7 +102,10 @@ variables:
   - name: maven_settings_file
     value: "./.mvn/settings.xml"
   - name: maven_repository_server
-    value: stacks.releases::https://amidostacks.jfrog.io/artifactory/default-maven-local
+    ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
+      value: stacks.releases::https://amidostacks.jfrog.io/artifactory/stacks-maven-releases-local
+    ${{ if ne( variables['Build.SourceBranchName'], 'main' ) }}:
+      value: stacks.releases::https://amidostacks.jfrog.io/artifactory/stacks-maven-snapshots-local
 
   # Vulnerability Scan
   - name: vulnerability_scan
