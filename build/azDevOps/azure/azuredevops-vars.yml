@@ -44,9 +44,9 @@ variables:
 
   # Versioning
   - name: version_major
-    value: X
+    value: Z
   - name: version_minor
-    value: Y
+    value: Y1
   - name: counter_index
     value: "${{variables.version_major}}-${{variables.version_minor}}"
   - name: version_revision
