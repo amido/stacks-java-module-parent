@@ -48,7 +48,10 @@ variables:
   - name: version_minor
     value: 0
   - name: counter_index
-    value: "${{variables.version_major}}-${{variables.version_minor}}"
+    ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
+      value: "${{variables.version_major}}-${{variables.version_minor}}-releases"
+    ${{ if ne( variables['Build.SourceBranchName'], 'main' ) }}:
+      value: "${{variables.version_major}}-${{variables.version_minor}}-snapshots"
   - name: version_revision
     value: "$[counter(variables['counter_index'], 0)]"
 
