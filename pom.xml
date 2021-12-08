@@ -13,13 +13,13 @@
 
     <properties>
         <!-- Dependency versions definitions-->
-        <spring-boot.version>2.5.2</spring-boot.version>
+        <spring-boot.version>2.5.7</spring-boot.version>
         <spring.version>5.3.8</spring.version>
         <applicationinsights.version>2.6.3</applicationinsights.version>
         <auth0-spring-security-api.version>1.4.1</auth0-spring-security-api.version>
         <azure.springboot.version>3.6.0</azure.springboot.version>
         <azure.messaging-servicebus.version>7.3.0</azure.messaging-servicebus.version>
-        <cosmosdb.version>3.6.0</cosmosdb.version>
+        <cosmosdb.version>3.10.0</cosmosdb.version>
         <equals-verifier.version>3.7.2</equals-verifier.version>
         <hamcrest.version>2.2</hamcrest.version>
         <fmt-maven-plugin.version>2.12</fmt-maven-plugin.version>
@@ -44,6 +44,9 @@
         <spotbugs-maven-plugin.version>4.2.3</spotbugs-maven-plugin.version>
         <spotbugs.version>4.2.3</spotbugs.version>
         <assertj-core.version>3.21.0</assertj-core.version>
+        <io.netty.netty-codec-http.version>4.1.68.Final</io.netty.netty-codec-http.version>
+        <spring.security.version>5.5.1</spring.security.version>
+        <logback.version>1.2.7</logback.version>
 
         <!-- Set the encoding to UTF-8 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -238,7 +241,18 @@
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>applicationinsights-logging-logback</artifactId>
                 <version>${applicationinsights.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>ch.qos.logback</groupId>
+                        <artifactId>logback-core</artifactId>
+                    </exclusion>
+                </exclusions>
                 <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.projectreactor.netty</groupId>
@@ -284,6 +298,26 @@
                 <groupId>com.auth0</groupId>
                 <artifactId>auth0-spring-security-api</artifactId>
                 <version>${auth0-spring-security-api.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.security</groupId>
+                        <artifactId>spring-security-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework.security</groupId>
+                        <artifactId>spring-security-web</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-core</artifactId>
+                <version>${spring.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+                <version>${spring.security.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.pitest</groupId>
@@ -305,7 +339,7 @@
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-codec-http</artifactId>
-                <version>4.1.65.Final</version>
+                <version>${io.netty.netty-codec-http.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.beust</groupId>
