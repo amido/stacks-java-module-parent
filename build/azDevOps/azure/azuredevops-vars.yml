@@ -44,11 +44,11 @@ variables:
 
   # Versioning
   - name: version_major
-    value: 0
+    value: 1
   - name: version_minor
     value: 0
   - name: version_patch
-    value: 2
+    value: 0-rc1
   - name: build_type
     ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
       value: "RELEASE"
