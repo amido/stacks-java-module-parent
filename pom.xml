@@ -44,7 +44,7 @@
         <spotbugs-maven-plugin.version>4.2.3</spotbugs-maven-plugin.version>
         <spotbugs.version>4.2.3</spotbugs.version>
         <assertj-core.version>3.21.0</assertj-core.version>
-        <io.netty.netty-codec-http.version>4.1.68.Final</io.netty.netty-codec-http.version>
+        <io.netty.netty-codec-http.version>4.1.71.Final</io.netty.netty-codec-http.version>
         <spring.security.version>5.5.1</spring.security.version>
         <logback.version>1.2.7</logback.version>
 
@@ -135,6 +135,12 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
                 <version>${spring-boot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>junit</groupId>
+                        <artifactId>junit</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -332,6 +338,11 @@
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-codec-http</artifactId>
+                <version>${io.netty.netty-codec-http.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-codec-</artifactId>
                 <version>${io.netty.netty-codec-http.version}</version>
             </dependency>
             <dependency>
