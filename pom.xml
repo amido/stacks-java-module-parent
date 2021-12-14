@@ -342,7 +342,7 @@
             </dependency>
             <dependency>
                 <groupId>io.netty</groupId>
-                <artifactId>netty-codec-</artifactId>
+                <artifactId>netty-codec</artifactId>
                 <version>${io.netty.netty-codec-http.version}</version>
             </dependency>
             <dependency>
