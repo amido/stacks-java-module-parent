@@ -37,7 +37,7 @@
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <mockito.version>3.11.2</mockito.version>
         <org.projectlombok.version>1.18.0</org.projectlombok.version>
-        <org.springdoc-openapi.version>1.5.9</org.springdoc-openapi.version>
+        <org.springdoc-openapi.version>1.6.0</org.springdoc-openapi.version>
         <owasp-dependency-check-plugin.version>6.4.1</owasp-dependency-check-plugin.version>
         <pitest.version>1.6.7</pitest.version>
         <puppycrawl-tools-checkstyle.version>8.44</puppycrawl-tools-checkstyle.version>
@@ -239,6 +239,10 @@
                         <artifactId>netty-codec-http</artifactId>
                     </exclusion>
                     <exclusion>
+                        <groupId>io.netty</groupId>
+                        <artifactId>netty-handler</artifactId>
+                    </exclusion>
+                    <exclusion>
                         <groupId>com.beust</groupId>
                         <artifactId>jcommander</artifactId>
                     </exclusion>
@@ -343,6 +347,11 @@
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-codec</artifactId>
+                <version>${io.netty.netty-codec-http.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-handler</artifactId>
                 <version>${io.netty.netty-codec-http.version}</version>
             </dependency>
             <dependency>
