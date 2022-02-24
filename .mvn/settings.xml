@@ -32,6 +32,11 @@
       <username>${artifactory.username}</username>
       <password>${artifactory.password}</password>
     </server>
+    <server>
+      <id>ossrh</id>
+      <username>${ossrh.jira.id}</username>
+      <password>${ossrh.jira.pwd</password>
+    </server>
   </servers>
 
   <mirrors>
