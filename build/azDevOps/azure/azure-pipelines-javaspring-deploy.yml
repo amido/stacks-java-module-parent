@@ -94,7 +94,7 @@ stages:
               project_type: "${{ variables.java_project_type }}"
               # OSSRH maven central credentiels
               ossrh_jira_id: "$(ossrh-jira-id)"
-              ossrh_jira_id: "$(ossrh-jira-password)"
+              ossrh_jira_password: "$(ossrh-jira-password)"
 
 
 
