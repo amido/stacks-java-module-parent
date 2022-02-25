@@ -96,8 +96,6 @@ stages:
               ossrh_jira_id: "$(ossrh-jira-id)"
               ossrh_jira_password: "$(ossrh-jira-password)"
 
-
-
           # Performs static code analysis, such as Sonar Cloud
           - template: azDevOps/azure/templates/steps/java/test-static-code-analysis.yml@templates
             parameters:
