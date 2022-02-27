@@ -93,6 +93,7 @@ stages:
               vulnerability_scan_fail_build_on_detection: "${{ variables.vulnerability_scan_fail_build_on_detection }}"
               project_type: "${{ variables.java_project_type }}"
               # private  key to sign doc
+              gpg_key_id: "$(gpg-key-id)"
               gpg_private_key: "$(gpg-private-key)"
 
           # Performs static code analysis, such as Sonar Cloud
