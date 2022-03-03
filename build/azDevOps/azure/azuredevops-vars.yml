@@ -103,7 +103,7 @@ variables:
   - name: maven_archetype_properties_file
     value: "archetype.properties"
   - name: maven_settings_file
-    value: "./.mvn/settings.xml"
+    value: "/.mvn/settings.xml"
   - name: maven_repository_server
     ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
       value: stacks.releases::https://amidostacks.jfrog.io/artifactory/stacks-maven-releases-local
