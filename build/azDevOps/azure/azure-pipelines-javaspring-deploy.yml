@@ -87,7 +87,7 @@ stages:
               # Artifactory
               artifactory_username: "$(artifactory-username)"
               artifactory_password: "$(artifactory-password)"
-              #OSSRH
+              # OSSRH
               ossrh_jira_id: "$(ossrh-jira-id)"
               ossrh_jira_password: "$(ossrh-jira-password)"
               # Docker
