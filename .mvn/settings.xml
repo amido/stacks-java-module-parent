@@ -35,7 +35,7 @@
     <server>
       <id>ossrh</id>
       <username>${ossrh.jira.id}</username>
-      <password>{UE3uuQBu7H8HknXH/LZrtjfwOdMlbSGGN7G5TZrCLITtQY773Ff2wiI+PIRmR0XY}</password>
+      <password>${ossrh.jira.password}</password>
     </server>
   </servers>
 
