@@ -139,3 +139,5 @@ variables:
     value: GitHubReleases
   - name: github_org
     value: $(company)
+  - name: maven_settings_security_file
+    value: ".mvn/settings-security.xml"
