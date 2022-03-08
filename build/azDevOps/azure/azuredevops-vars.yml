@@ -50,9 +50,7 @@ variables:
   - name: version_patch
     value: 0-RC4
   - name: build_type
-    ${{ if eq( variables['Build.SourceBranchName'], 'main')}}:
-      value: "RELEASE"
-    ${{ if eq( variables['Build.SourceBranchName'], 'dev-change')}}:
+    ${{ if or (eq( variables['Build.SourceBranchName'], 'main'), eq( variables['Build.SourceBranchName'], 'dev-change'))}} :
       value: "RELEASE"
     ${{ if ne( variables['Build.SourceBranchName'], 'main' ) }}:
       value: "SNAPSHOT"
