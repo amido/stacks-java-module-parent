@@ -375,22 +375,23 @@
 
     <distributionManagement>
         <!-- Publishing to jFrog artifactory -->
-<!--        <repository>
+        <repository>
             <id>stacks.releases</id>
             <url>https://amidostacks.jfrog.io/artifactory/stacks-maven-releases-local</url>
-        </repository>      -->
-        <repository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
-<!--       <snapshotRepository>
+        <snapshotRepository>
             <id>stacks.snapshots</id>
             <url>https://amidostacks.jfrog.io/artifactory/stacks-maven-snapshots-local</url>
-        </snapshotRepository> -->
+        </snapshotRepository>
+        <!-- Publishing to Maven central  -->
         <snapshotRepository>
             <id>ossrh</id>
             <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
     </distributionManagement>
 
     <profiles>
