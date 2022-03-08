@@ -6,10 +6,33 @@
     <groupId>com.amido.stacks.modules</groupId>
     <artifactId>stacks-modules-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>stacks-modules-parent</name>
+    <name>${project.groupId}:${project.artifactId}</name>
     <description>The parent for all Stacks modules</description>
+    <url>https://github.com/amido/stacks-java-module-parent.git</url>
 
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
     <packaging>pom</packaging>
+
+    <developers>
+        <developer>
+            <name>Amido</name>
+            <email>stacks@amido.com</email>
+            <organization>Sonatype</organization>
+            <organizationUrl>http://www.sonatype.com</organizationUrl>
+        </developer>
+    </developers>
+    
+    <scm>
+        <connection>scm:git:git://github.com:amido/stacks-java-module-parent.git</connection>
+        <developerConnection>scm:git:ssh://github.com:amido/stacks-java-module-parent.git</developerConnection>
+        <url>https://github.com/amido/stacks-java-module-parent</url>
+    </scm>
+
 
     <properties>
         <!-- Dependency versions definitions-->
