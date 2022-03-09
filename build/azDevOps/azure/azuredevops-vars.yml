@@ -52,8 +52,6 @@ variables:
   - name: build_type
     ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
       value: "RELEASE"
-    ${{ if eq( variables['Build.SourceBranchName'], 'dev-change' ) }}:
-      value: "RELEASE"
     ${{ else }}:
       value: "SNAPSHOT"
 

@@ -26,7 +26,7 @@
             <organizationUrl>http://www.sonatype.com</organizationUrl>
         </developer>
     </developers>
-    
+
     <scm>
         <connection>scm:git:git://github.com:amido/stacks-java-module-parent.git</connection>
         <developerConnection>scm:git:ssh://github.com:amido/stacks-java-module-parent.git</developerConnection>
@@ -659,7 +659,7 @@
                 <configuration>
                     <serverId>ossrh</serverId>
                     <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
             <plugin>
