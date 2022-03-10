@@ -99,7 +99,7 @@ stages:
               build_type: "${{ variables.build_type }}"
               # private  key id  to sign doc
               gpg_signing_key: "$(gpg-signing-key)"
-              gpg_private_key: "$(gpg-private-key)"
+              gpg_signing_key_id: "$(gpg-signing-key-id)"
 
           # Performs static code analysis, such as Sonar Cloud
           - template: azDevOps/azure/templates/steps/java/test-static-code-analysis.yml@templates
@@ -188,4 +188,4 @@ stages:
               build_type: "${{ variables.build_type }}"
               # private  key id  to sign doc
               gpg_signing_key: "$(gpg-signing-key)"
-              gpg_private_key: "$(gpg-private-key)"
+              gpg_signing_key_id: "$(gpg-signing-key-id)"
