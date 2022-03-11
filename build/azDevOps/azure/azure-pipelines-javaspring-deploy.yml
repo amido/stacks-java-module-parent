@@ -83,7 +83,6 @@ stages:
               maven_allowed_test_tags: "${{ variables.maven_allowed_test_tags}}"
               maven_package_version: "${{ variables.maven_package_version }}"
               maven_settings_file: "${{ variables.maven_settings_file }}"
-              maven_settings_securtiy_file: "${{ variables.maven_settings_security_file }}"
               # OSSRH
               ossrh_jira_id: "$(ossrh-jira-id)"
               ossrh_jira_password: "$(ossrh-jira-password)"
@@ -185,4 +184,4 @@ stages:
               build_type: "${{ variables.build_type }}"
               # private  key id  to sign doc
               gpg_private_key: "$(gpg-private-key)"
-              gpg_key_signing_id: "$(gpg-signing-id)"
+              gpg_key_signing_id: "$(gpg-key-signing-id)"
