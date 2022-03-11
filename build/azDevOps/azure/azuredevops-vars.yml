@@ -50,7 +50,7 @@ variables:
   - name: version_patch
     value: 0-RC4
   - name: build_type
-    ${{ if eq( variables['Build.SourceBranchName'], 'de-change' ) }}:
+    ${{ if eq( variables['Build.SourceBranchName'], 'dev-change' ) }}:
       value: "RELEASE"
     ${{ else }}:
       value: "SNAPSHOT"
@@ -90,7 +90,7 @@ variables:
   - name: maven_package_version
     ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
       value: "${{ variables.version_major }}.${{ variables.version_minor }}.${{ variables.version_patch }}"
-    ${{ if ne( variables['Build.SourceBranchName'], 'dev-change' ) }}:
+    ${{ if ne( variables['Build.SourceBranchName'], 'main' ) }}:
       value: "$(Build.BuildNumber)"
   - name: maven_cache_directory
     value: "./.m2"
@@ -107,8 +107,6 @@ variables:
   - name: maven_settings_security_file
     value: ".mvn/settings-security.xml"
   - name: maven_repository_server
-    ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
-      value: ossrh::https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
     ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
       value: ossrh::https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
     ${{ if ne( variables['Build.SourceBranchName'], 'main' ) }}:
