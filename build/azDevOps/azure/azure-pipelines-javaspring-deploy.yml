@@ -84,9 +84,6 @@ stages:
               maven_package_version: "${{ variables.maven_package_version }}"
               maven_settings_file: "${{ variables.maven_settings_file }}"
               maven_settings_securtiy_file: "${{ variables.maven_settings_security_file }}"
-              # Artifactory
-              artifactory_username: "$(artifactory-username)"
-              artifactory_password: "$(artifactory-password)"
               # OSSRH
               ossrh_jira_id: "$(ossrh-jira-id)"
               ossrh_jira_password: "$(ossrh-jira-password)"
@@ -176,9 +173,9 @@ stages:
               maven_archetype_properties_file: "${{ variables.maven_archetype_properties_file }}"
               maven_settings_file: "${{ variables.maven_settings_file }}"
               maven_repository_server: "${{ variables.maven_repository_server }}"
-              # Artifactory
-              artifactory_username: "$(artifactory-username)"
-              artifactory_password: "$(artifactory-password)"
+              # OSSRH
+              ossrh_jira_id: "$(ossrh-jira-id)"
+              ossrh_jira_password: "$(ossrh-jira-password)"
               # Docker
               docker_build_container: "${{ variables.docker_java_image }}"
               # Vulnerability Scanning
