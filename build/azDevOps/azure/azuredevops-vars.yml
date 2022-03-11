@@ -50,7 +50,7 @@ variables:
   - name: version_patch
     value: 0-RC4
   - name: build_type
-    ${{ if or(eq( variables['Build.SourceBranchName'], 'feature/addReleasetask' ),eq( variables['Build.SourceBranchName'], 'feature/addReleasetask' ) }}:
+    ${{ if or(eq( variables['Build.SourceBranchName'], 'feature/addReleasetask' ),eq( variables['Build.SourceBranchName'], 'feature/addReleasetask' )) }}:
       value: "RELEASE"
     ${{ else }}:
       value: "SNAPSHOT"
