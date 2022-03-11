@@ -109,7 +109,7 @@ variables:
   - name: maven_repository_server
     ${{ if eq( variables['Build.SourceBranchName'], 'dev-change' ) }}:
       value: ossrh::https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
-    ${{ if ne( variables['Build.SourceBranchName'], 'main' ) }}:
+    ${{ if ne( variables['Build.SourceBranchName'], 'dev-change' ) }}:
       value: ossrh::https://s01.oss.sonatype.org/content/repositories/snapshots
 
   # Vulnerability Scan
