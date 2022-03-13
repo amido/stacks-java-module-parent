@@ -89,7 +89,7 @@ variables:
   # Maven
   - name: maven_package_version
     ${{ if eq( variables['Build.SourceBranchName'], 'addReleasetask' ) }}:
-      value: "${{ variables.version_major }}.${{ variables.version_minor }}.${{ variables.version_patch }}.$(Rev:r)-$(build_type)"
+      value: "${{ variables.version_major }}.${{ variables.version_minor }}.${{ variables.version_patch }}"
     ${{ if ne( variables['Build.SourceBranchName'], 'addReleasetask' ) }}:
       value: "$(Build.BuildNumber)"
   - name: maven_cache_directory
