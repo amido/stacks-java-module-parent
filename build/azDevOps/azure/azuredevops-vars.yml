@@ -88,9 +88,9 @@ variables:
 
   # Maven
   - name: maven_package_version
-    ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
+    ${{ if eq( variables['Build.SourceBranchName'], 'addReleasetask' ) }}:
       value: "${{ variables.version_major }}.${{ variables.version_minor }}.${{ variables.version_patch }}"
-    ${{ if ne( variables['Build.SourceBranchName'], 'main' ) }}:
+    ${{ if ne( variables['Build.SourceBranchName'], 'addReleasetask' ) }}:
       value: "$(Build.BuildNumber)"
   - name: maven_cache_directory
     value: "./.m2"
@@ -107,9 +107,9 @@ variables:
   - name: maven_settings_security_file
     value: ".mvn/settings-security.xml"
   - name: maven_repository_server
-    ${{ if eq( variables['Build.SourceBranchName'], 'feature/addReleasetask' ) }}:
+    ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
       value: ossrh::https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
-    ${{ if ne( variables['Build.SourceBranchName'], 'feature/addReleasetask' ) }}:
+    ${{ if ne( variables['Build.SourceBranchName'], 'main' ) }}:
       value: ossrh::https://s01.oss.sonatype.org/content/repositories/snapshots
 
   # Vulnerability Scan
