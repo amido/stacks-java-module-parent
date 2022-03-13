@@ -63,12 +63,6 @@ stages:
 
           - checkout: templates
 
-          - bash: |
-              echo "maven package version  : ${{ variables.maven_package_version}}"
-              echo '$(Rev:r)'
-              echo '$(Build.BuildNumber)'
-            displayName: "testing version of maven package  "
-
           # Validates all YAML files in the repo to check they adhere to standards
           - template: azDevOps/azure/templates/steps/java/test-validate-yaml.yml@templates
             parameters:
@@ -87,7 +81,7 @@ stages:
               maven_cache_directory: "${{ variables.maven_cache_directory }}"
               maven_surefire_reports_dir: "${{ variables.maven_surefire_reports_dir }}"
               maven_allowed_test_tags: "${{ variables.maven_allowed_test_tags}}"
-              maven_package_version: "$(Build.BuildNumber)."
+              maven_package_version: "${{ variables.maven_package_version }}"
               maven_settings_file: "${{ variables.maven_settings_file }}"
               # OSSRH
               ossrh_jira_id: "$(ossrh-jira-id)"
@@ -173,7 +167,7 @@ stages:
               maven_cache_directory: "${{ variables.maven_cache_directory }}"
               maven_surefire_reports_dir: "${{ variables.maven_surefire_reports_dir }}"
               maven_allowed_test_tags: "${{ variables.maven_allowed_test_tags}}"
-              maven_package_version: "${{ $(Build.BuildNumber) }}"
+              maven_package_version: "${{ variables.maven_package_version }}"
               maven_pom_file: "${{ variables.maven_archetype_pom_file }}"
               maven_archetype_properties_file: "${{ variables.maven_archetype_properties_file }}"
               maven_settings_file: "${{ variables.maven_settings_file }}"
