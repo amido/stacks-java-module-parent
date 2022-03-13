@@ -47,6 +47,9 @@ resources:
 
 variables:
   - template: azuredevops-vars.yml
+  - name: revision-version
+    value: $(Rev:r)
+
 
 stages:
   - stage: Build
@@ -81,7 +84,7 @@ stages:
               maven_cache_directory: "${{ variables.maven_cache_directory }}"
               maven_surefire_reports_dir: "${{ variables.maven_surefire_reports_dir }}"
               maven_allowed_test_tags: "${{ variables.maven_allowed_test_tags}}"
-              maven_package_version: "${{ variables.maven_package_version.$(Rev:r)-$(build_type)}}"
+              maven_package_version: "${{ variables.maven_package_version}}.${{ variables.revision-version}}-$(build_type) }}"
               maven_settings_file: "${{ variables.maven_settings_file }}"
               # OSSRH
               ossrh_jira_id: "$(ossrh-jira-id)"
