@@ -96,7 +96,7 @@ variables:
   - name: maven_allowed_test_tags
     value: "Unit | Component | Integration"
   - name: maven_archetype_pom_file
-    value: "target/generated-sources/archetype/pom.xml"
+    value: "target/generated-sources/archetype/target/classes/archetype-resources/pom.xml"
   - name: maven_archetype_properties_file
     value: "archetype.properties"
   - name: maven_settings_file
