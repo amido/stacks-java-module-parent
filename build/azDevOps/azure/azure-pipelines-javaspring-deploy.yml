@@ -65,7 +65,7 @@ stages:
 
           - bash: |
               echo "maven package version  : ${{ variables.maven_package_version}}"
-              echo "version used : $(Rev:r)-$(build_type)"
+              echo "version used : $(Rev:r)"
               echo "package name : $(name)"
             target:
             displayName: "testing version of maven package  "
