@@ -107,9 +107,9 @@ variables:
   - name: maven_settings_security_file
     value: ".mvn/settings-security.xml"
   - name: maven_repository_server
-    ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
+    ${{ if eq( variables['Build.SourceBranchName'], 'addReleasetask' ) }}:
       value: ossrh::https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
-    ${{ if ne( variables['Build.SourceBranchName'], 'main' ) }}:
+    ${{ if ne( variables['Build.SourceBranchName'], 'addReleasetask' ) }}:
       value: ossrh::https://s01.oss.sonatype.org/content/repositories/snapshots
 
   # Vulnerability Scan
