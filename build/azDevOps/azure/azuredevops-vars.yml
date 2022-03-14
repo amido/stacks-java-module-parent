@@ -96,13 +96,11 @@ variables:
   - name: maven_allowed_test_tags
     value: "Unit | Component | Integration"
   - name: maven_archetype_pom_file
-    value: "target/generated-sources/archetype/pom.xml"
+    value: "pom.xml"
   - name: maven_archetype_properties_file
     value: "archetype.properties"
   - name: maven_settings_file
     value: "./.mvn/settings.xml"
-  - name: maven_settings_security_file
-    value: ".mvn/settings-security.xml"
   - name: maven_repository_server
     ${{ if eq( variables['Build.SourceBranchName'], 'addReleasetask' ) }}:
       value: ossrh::https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
