@@ -172,6 +172,7 @@ stages:
               maven_archetype_properties_file: "${{ variables.maven_archetype_properties_file }}"
               maven_settings_file: "${{ variables.maven_settings_file }}"
               maven_repository_server: "${{ variables.maven_repository_server }}"
+              maven_archetype_directory: "${{ variables.maven_archetype_directory }}"
               # OSSRH
               ossrh_jira_id: "$(ossrh-jira-id)"
               ossrh_jira_password: "$(ossrh-jira-password)"

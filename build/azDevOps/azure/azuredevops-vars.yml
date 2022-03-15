@@ -88,7 +88,10 @@ variables:
 
   # Maven
   - name: maven_package_version
-    value: "$(Build.BuildNumber)"
+    ${{ if eq( variables['Build.SourceBranchName'], 'addReleasetask' ) }}:
+      value: "${{ variables.version_major }}.${{ variables.version_minor }}.${{ variables.version_patch }}"
+    ${{ if ne( variables['Build.SourceBranchName'], 'addReleasetask' ) }}:
+      value: "$(Build.BuildNumber)"
   - name: maven_cache_directory
     value: "./.m2"
   - name: maven_archetype_directory
@@ -99,6 +102,8 @@ variables:
     value: "Unit | Component | Integration"
   - name: maven_archetype_pom_file
     value: "target/generated-sources/archetype/pom.xml"
+  - name: maven_archetype_directory
+    value: "target/generated-sources/archetype"
   - name: maven_archetype_properties_file
     value: "archetype.properties"
   - name: maven_settings_file
