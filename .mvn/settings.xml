@@ -13,35 +13,11 @@
 
   <servers>
     <server>
-      <id>stacks.releases</id>
-      <username>${artifactory.username}</username>
-      <password>${artifactory.password}</password>
-    </server>
-    <server>
-      <id>stacks.snapshots</id>
-      <username>${artifactory.username}</username>
-      <password>${artifactory.password}</password>
-    </server>
-    <server>
-      <id>central</id>
-      <username>${artifactory.username}</username>
-      <password>${artifactory.password}</password>
-    </server>
-    <server>
-      <id>snapshots</id>
-      <username>${artifactory.username}</username>
-      <password>${artifactory.password}</password>
-    </server>
-    <server>
       <id>ossrh</id>
       <username>${ossrh.jira.id}</username>
       <password>${ossrh.jira.password}</password>
     </server>
   </servers>
-
-  <mirrors>
-  </mirrors>
-
   <profiles>
 
     <profile>
