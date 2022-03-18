@@ -48,7 +48,7 @@ variables:
   - name: version_minor
     value: 0
   - name: version_patch
-    value: 0-RC4
+    value: 0-RC3
   - name: build_type
     ${{ if eq( variables['Build.SourceBranchName'], 'dev-test-RC4' ) }}:
       value: "RELEASE"
