@@ -50,7 +50,7 @@ variables:
   - name: version_patch
     value: 0-RC5
   - name: build_type
-    ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
+    ${{ if eq( variables['Build.SourceBranchName'], 'archetypeRC5' ) }}:
       value: "RELEASE"
     ${{ else }}:
       value: "SNAPSHOT"
@@ -88,7 +88,10 @@ variables:
 
   # Maven
   - name: maven_package_version
-    value: "$(Build.BuildNumber)"
+    ${{ if eq( variables['Build.SourceBranchName'], 'archetypeRC5' ) }}:
+      value: "${{ variables.version_major }}.${{ variables.version_minor }}.${{ variables.version_patch }}"
+    ${{ if ne( variables['Build.SourceBranchName'], 'archetypeRC5' ) }}:
+      value: "$(Build.BuildNumber)"
   - name: maven_cache_directory
     value: "./.m2"
   - name: maven_surefire_reports_dir
@@ -102,9 +105,9 @@ variables:
   - name: maven_settings_file
     value: "./.mvn/settings.xml"
   - name: maven_repository_server
-    ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
+    ${{ if eq( variables['Build.SourceBranchName'], 'archetypeRC5' ) }}:
       value: ossrh::https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
-    ${{ if ne( variables['Build.SourceBranchName'], 'main' ) }}:
+    ${{ if ne( variables['Build.SourceBranchName'], 'archetypeRC5' ) }}:
       value: ossrh::https://s01.oss.sonatype.org/content/repositories/snapshots
 
   # Vulnerability Scan
