@@ -5,7 +5,7 @@
 
     <groupId>com.amido.stacks.modules</groupId>
     <artifactId>stacks-modules-parent</artifactId>
-    <version>1.0.1-RC3</version>
+    <version>1.0.0-RC5</version>
     <packaging>pom</packaging>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>The parent for all Stacks modules</description>
