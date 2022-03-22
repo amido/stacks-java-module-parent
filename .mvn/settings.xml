@@ -19,9 +19,4 @@
     </server>
   </servers>
 
-
-  <activeProfiles>
-    <activeProfile>artifactory</activeProfile>
-  </activeProfiles>
-
 </settings>
