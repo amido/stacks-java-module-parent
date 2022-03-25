@@ -96,6 +96,7 @@ stages:
               # private  key id  to sign doc
               gpg_key_signing_id: "$(gpg-key-signing-id)"
               gpg_private_key: "$(gpg-private-key)"
+              vulnerability_scan_report: "${{ variables.vulnerability_scan_report }}"
 
           # Performs static code analysis, such as Sonar Cloud
           - template: azDevOps/azure/templates/steps/java/test-static-code-analysis.yml@templates
@@ -139,6 +140,8 @@ stages:
               vulnerability_scan_report: "${{ variables.vulnerability_scan_report }}"
               java_project_type: "${{ variables.java_project_type }}"
               functional_test_project_type: "${{ variables.functional_test_project_type }}"
+              # Docker
+              docker_build_container: "${{ variables.docker_java_image }}"
 
       - job: ArchetypeBuild
         dependsOn: ModuleBuild
