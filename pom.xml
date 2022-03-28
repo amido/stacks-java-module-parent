@@ -11,6 +11,17 @@
     <description>The parent for all Stacks modules</description>
     <url>https://github.com/amido/stacks-java-module-parent.git</url>
 
+    <distributionManagement>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <licenses>
         <license>
             <name>MIT License</name>
@@ -32,6 +43,7 @@
         <developerConnection>scm:git:ssh://github.com:amido/stacks-java-module-parent.git</developerConnection>
         <url>https://github.com/amido/stacks-java-module-parent</url>
     </scm>
+
 
 
     <properties>
@@ -397,18 +409,6 @@
 
 
     </dependencyManagement>
-
-    <distributionManagement>
-        <repository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-
-    </distributionManagement>
 
     <profiles>
         <profile>
