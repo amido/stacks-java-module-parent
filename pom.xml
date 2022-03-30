@@ -5,7 +5,7 @@
 
     <groupId>com.amido.stacks.modules</groupId>
     <artifactId>stacks-modules-parent</artifactId>
-    <version>1.0.0-RC5</version>
+    <version>1.0.0-RC6</version>
     <packaging>pom</packaging>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>The parent for all Stacks modules</description>
@@ -36,8 +36,8 @@
 
     <properties>
         <!-- Dependency versions definitions-->
-        <spring-boot.version>2.5.7</spring-boot.version>
-        <spring.version>5.3.8</spring.version>
+        <spring-boot.version>2.6.5</spring-boot.version>
+        <spring.version>5.3.14</spring.version>
         <applicationinsights.version>2.6.3</applicationinsights.version>
         <auth0-spring-security-api.version>1.4.1</auth0-spring-security-api.version>
         <azure.springboot.version>3.6.0</azure.springboot.version>
@@ -47,7 +47,7 @@
         <hamcrest.version>2.2</hamcrest.version>
         <fmt-maven-plugin.version>2.12</fmt-maven-plugin.version>
         <io-projectreactor-netty.version>1.0.8</io-projectreactor-netty.version>
-        <jackson.version>2.12.3</jackson.version>
+        <jackson.version>2.13.2.1</jackson.version>
         <jacoco.version>0.8.7</jacoco.version>
         <java.version>11</java.version>
         <junit-jupiter.version>5.7.2</junit-jupiter.version>
