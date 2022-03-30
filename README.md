@@ -38,11 +38,12 @@ There are four ways to integrate this module into your project:
 In the `parent` section of your application's `pom.xml` add:
 
 ```xml
-<parent>
-  <groupId>com.amido.stacks.modules</groupId>
-  <artifactId>stacks-modules-parent</artifactId>
-  <version>{LATEST_VERSION}</version>
-</parent>
+<dependency>
+    <groupId>com.amido.stacks.modules</groupId>
+    <artifactId>stacks-modules-parent</artifactId>
+    <version>1.0.1-RC5</version>
+    <type>pom</type>
+</dependency>
 ```
 
 Then you can do a `./mvnw clean compile` to fetch it; after that, you can use it like any other dependency.
@@ -57,9 +58,10 @@ Use it as you'd use any dependency in your build tool.
 
 ### Localized solution using Maven Archetypes
 
-If you wish to customise the module and use your organisation's namespaces instead of Amido's. You can create a
-[Maven archetype](https://maven.apache.org/archetype/index.html). Archetype is Maven's tool for
-scaffolding and offers lots of extra functionality. We suggest spending some time looking into them. We use Archetype to create a template and enable you to adopt this module under your organisation's namespace.
+If you wish to customise the module and use your organisation's namespaces instead of Amido's, you can create a
+[Maven archetype](https://maven.apache.org/archetype/index.html). Archetypes are Maven's tool for
+scaffolding and offers lots of extra functionality. We suggest spending some time looking into them.
+We use Archetype to create a template and enable you to adopt this module under your organisation's namespace.
 To use the deployed archetypes:
 
 1.  Make and move to a new folder
@@ -162,42 +164,3 @@ To build, install and use the archetype follow these steps:
 >-  Update them manually
 >-  Re-create the relevant `import` statements to use the new-made module instead
 >-  If you plan to use this with Amido Stacks, include your namespace in the `@ComponentScan` annotation of the `Application` class.
-
-## Accessing Artifactory
-
-Our artefacts and archetypes get hosted on an Artifactory repository. To use either, from a project
-other than Amido Stacks, you will need to add that repo in your `pom.xml`:
-
-```xml
-<repositories>
-    <repository>
-        <snapshots />
-        <id>snapshots</id>
-        <name>default-maven-virtual</name>
-        <url>https://amidostacks.jfrog.io/artifactory/default-maven-virtual</url>
-    </repository>
-</repositories>
-```
-
-Alternatively, you can also add this configuration as a profile in your Maven's `settings.xml` file
-in the `.m2` folder in your home directory (any OS):
-
-```xml
-<profiles>
-    <profile>
-        <repositories>
-            <repository>
-                <snapshots/>
-                <id>snapshots</id>
-                <name>default-maven-virtual</name>
-                <url>https://amidostacks.jfrog.io/artifactory/default-maven-virtual</url>
-            </repository>
-        </repositories>
-        <id>artifactory</id>
-    </profile>
-</profiles>
-
-<activeProfiles>
-    <activeProfile>artifactory</activeProfile>
-</activeProfiles>
-```
