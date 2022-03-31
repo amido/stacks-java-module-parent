@@ -37,7 +37,7 @@
     <properties>
         <!-- Dependency versions definitions-->
         <spring-boot.version>2.6.5</spring-boot.version>
-        <spring.version>5.3.14</spring.version>
+        <spring.version>5.3.18</spring.version>
         <applicationinsights.version>2.6.3</applicationinsights.version>
         <auth0-spring-security-api.version>1.4.1</auth0-spring-security-api.version>
         <azure.springboot.version>3.6.0</azure.springboot.version>
