@@ -52,7 +52,7 @@
         <jacoco.version>0.8.7</jacoco.version>
         <java.version>11</java.version>
         <junit-jupiter.version>5.7.2</junit-jupiter.version>
-        <lombok.version>1.18.22</lombok.version>
+        <lombok.version>1.18.24</lombok.version>
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven.compiler.source>11</maven.compiler.source>
